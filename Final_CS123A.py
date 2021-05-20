@@ -72,7 +72,8 @@ hidden_states = ['N', 'C']
 pi = [0.5, 0.5]
 
 print('\n')
-state_space = pd.Series(pi, index=hidden_states, name='states')
+state_space = pd.DataFrame(pi, index=hidden_states, columns=[''])
+print("Initial Probability Matrix")
 print(state_space)
 print('\n')
 
@@ -84,6 +85,7 @@ a_df = pd.DataFrame(columns=hidden_states, index=hidden_states)
 a_df.loc[hidden_states[0]] = [0.996, 0.004]         
 a_df.loc[hidden_states[1]] = [0.002, 0.998]
 
+print("Transition Probability Matrix")
 print(a_df)
 a = a_df.values
 print('\n')
@@ -100,6 +102,7 @@ b_df = pd.DataFrame(columns=observable_states, index=hidden_states)
 b_df.loc[hidden_states[0]] = [0.32, 0.32, 0.18, 0.18] 
 b_df.loc[hidden_states[1]] = [0.28, 0.25, 0.22, 0.25]
 
+print("Emission Probability Matrix")
 print(b_df)
 b = b_df.values
 print('\n')
